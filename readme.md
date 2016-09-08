@@ -35,12 +35,13 @@ where:
 ## Examples
 
 ```
-var users = new ws.Users(new ws.Client(apiToken));
+var client = new ws.Client(apiToken)
+var users = new ws.Users(client);
 users.getMe().then(function (data) {
   console.log(data);
 });
 
-var timeEntries = new ws.TimeEntries(new ws.Client(apiToken));
+var timeEntries = new ws.TimeEntries(client);
 timeEntries.getReports({
   projectId: projectId,
   from: dateFrom,
