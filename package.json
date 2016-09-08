@@ -1,0 +1,25 @@
+{
+  "name": "worksnapsjs",
+  "version": "1.0.0",
+  "description": "Simple nodejs client for worksnaps API",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexey-sh/worksnapsjs.git"
+  },
+  "keywords": [
+    "worksnaps",
+    "api"
+  ],
+  "author": "Alexey <alexey.sunshine@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexey-sh/worksnapsjs/issues"
+  },
+  "homepage": "https://github.com/alexey-sh/worksnapsjs#readme"
+}
