@@ -5,7 +5,6 @@ var xml2js = require('xml2js');
 var Q = require('Q');
 var EventEmitter = require('events').EventEmitter;
 var _ = require('underscore');
-var winston = require('winston');
 
 function BaseClient(token) {
     this.token = token;
@@ -16,9 +15,6 @@ function BaseClient(token) {
         }
     });
     this.events = new EventEmitter();
-    this.events.on('request', function (options) {
-        winston.log(options.url, (options.time/1000).toFixed(2) + 's', !!options.error);
-    });
 }
 BaseClient.prototype.transformXML = function transform(obj) {
     function isNumeric(n) {
@@ -68,7 +64,6 @@ BaseClient.prototype.fetch = function (method, url, query, data) {
         qs: query,
         body: data
     };
-    winston.log('request', options);
     var start = Date.now();
     this.request(options, function (error, response, body) {
         that.events.emit('request', {url: options.url,time: Date.now() - start, body: body, error: error});
@@ -79,7 +74,6 @@ BaseClient.prototype.fetch = function (method, url, query, data) {
         }
         xml2js.parseString(body, {explicitArray: false}, function (err, result) {
             if (err || (result.reply && result.reply.error_code)) {
-                winston.log('xml2js.parseString', result);
                 deferred.reject(result);
                 return
             }
