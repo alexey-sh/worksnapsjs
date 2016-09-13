@@ -8,7 +8,7 @@ function Namespace(client, url) {
         this.baseUrl = url;
     }
 }
-Namespace.prototype.baseUrl = 'http://worksnaps.net/api';
+Namespace.prototype.baseUrl = 'http://api.worksnaps.com/api';
 Namespace.prototype.apiUrl = null;
 Namespace.prototype.rootTag = null;
 
